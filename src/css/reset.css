@@ -3,6 +3,7 @@
 }
 
 /* Reset styles */
+/* Reset styles */
 h1,
 h2,
 h3,
@@ -36,4 +37,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+
+.form {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
