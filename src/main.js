@@ -9,9 +9,8 @@ const gallery = document.querySelector('.gallery');
 const galleryBox = document.querySelector('.gallery-box');
 const loaderTopBtn = document.querySelector('.loader-top');
 const loaderBottomBtn = document.querySelector('.loader-bottom');
-const input = document.querySelector('input');
 const loadImg = document.querySelector('.load-image');
-const body = document.querySelector('body');
+
 
 let page = 1;
 let q = '';
@@ -52,7 +51,7 @@ async function onSubmit(event) {
 
     if (hits.length > 0) {
       loaderTopBtn.style.display = 'none';
-      gallery.insertAdjacentHTML('beforeend', renderImg(hits));
+      gallery.innerHTML = renderImg(hits);;
       lightbox.refresh();
       iziToast.success({
         position: 'topRight',
