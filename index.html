@@ -5,27 +5,33 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/goit-js-hw-12/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>goit-js-hw-12</title>
+  <title>Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,500;1,600&display=swap"
+    rel="stylesheet" />
   
   <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-89feecc5.js">
-  <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-eb6030bc.css">
-  <link rel="stylesheet" href="/goit-js-hw-12/assets/index-c0a404e0.css">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-c145bea9.js">
+  <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-fd638ea2.css">
+  <link rel="stylesheet" href="/goit-js-hw-12/assets/index-7f807f21.css">
 </head>
 
 <body>
-  <form class="search-form">
-    <input class="search-text" type="text" name="search" placeholder="Search images..." />
-    <button class="search-btn btn">Search</button>
+  <form class="form">
+    <input type="text" name="search" placeholder="Search images..." />
+    <button class="search-btn" type="submit">Search</button>
   </form>
-  <p class="main-load loading-message">
-    <span class="loader"></span>Loading images, please wait...
-  </p>
-  <div class="gallery"></div>
-  <button class="load-more-btn btn" type="button">Load more</button>
-  <p class="more-load loading-message">
-    <span class="loader"></span>Loading images, please wait...
-  </p>
+
+  <div class="gallery-box">
+    <span class="loader-top"></span>
+    <ul class="gallery"></ul>
+  </div>
+  <div class="loader-bottom-box">
+    <span class="loader-bottom"> </span>
+    <button type="button" class="load-image">Load more</button>
+  </div>
+
   
 </body>
 
