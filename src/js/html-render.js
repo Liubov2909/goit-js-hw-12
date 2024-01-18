@@ -12,7 +12,7 @@ export const gallery = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
 });
 
-export function renderImages(images) {
+export function renderImages(images, isLoadMore) {
   if (images.hits.length === 0) {
     createMessage(
       'Sorry, there are no images matching your search query. Please try again!'
@@ -22,7 +22,8 @@ export function renderImages(images) {
     return;
   }
 
-  galleryEl.innerHTML = '';
+  if (!isLoadMore) galleryEl.innerHTML = '';
+  
   const galleryHTML = images.hits.reduce((acc, imageEl) => {
     return (acc += `
         <a class="gallery-link" href="${imageEl.largeImageURL}">

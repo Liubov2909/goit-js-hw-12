@@ -8,29 +8,31 @@ const searchOptionsOb = {
   image_type: 'photo',
   orientation: 'horizontal',
   safesearch: true,
-  page: 1;
+  per_page: 40,
+  page: 1,
 };
 
 const searchBtn = document.querySelector('.search-btn');
 const loadMoreBtn = document.querySelector('.load-more-btn');
-const searchLoadingTextEl = document.querySelector(.'main-load');
+const searchLoadingTextEl = document.querySelector('.main-load');
 const moreLoadingTextEl = document.querySelector('.more-load');
-
 
 export async function downloadImages(searchKey, isLoadMore = false) {
   if (isLoadMore) {
-  moreLoadingTextEl.style.display = 'block';
-  loadMoreBtn.style.display = 'none';
-  loadMoreBtn.blur();
-    if (searchParams.page === 1) searchParams.page++;  
-  } else {
     moreLoadingTextEl.style.display = 'block';
-    loadMoreBtn.style.display = true;
-    loadMoreBtn.blur(); 
-  
-    searchParams.page = 1;
+    loadMoreBtn.style.display = 'none';
+    loadMoreBtn.blur();
+
+    if (searchOptionsOb.page === 1) searchOptionsOb.page++;
+  } else {
+    searchLoadingTextEl.style.display = 'block';
+    searchBtn.disabled = true;
+    searchBtn.blur();
+
+    searchOptionsOb.page = 1;
   }
-  searchParams.q = searchKey;
+
+  searchOptionsOb.q = searchKey;
   let isDownloarError = false;
   let totalHits = 0;
   try {
@@ -44,21 +46,21 @@ export async function downloadImages(searchKey, isLoadMore = false) {
 
   if (isLoadMore) {
     if (!isDownloarError) {
-      searchParams.page++;
+      searchOptionsOb.page++;
 
       const elementRect = document
         .querySelector('.gallery-link')
         .getBoundingClientRect();
-      window.skroll.By({
+      window.scrollBy({
         top: elementRect.height * 2.0,
         left: 0,
         behavior: 'smooth',
       });
-      
-      if (searchParams.per.page * searchParams.page >= totalHits)
-      createMessage(
-        "We're sorry, but you've reached the end of search results."
-      );
+
+      if (searchOptionsOb.per_page * searchOptionsOb.page >= totalHits)
+        createMessage(
+          "We're sorry, but you've reached the end of search results."
+        );
       else loadMoreBtn.style.display = 'flex';
     } else loadMoreBtn.style.display = 'flex';
 
@@ -72,7 +74,8 @@ export async function downloadImages(searchKey, isLoadMore = false) {
 
 async function fetchImages() {
   const response = await axios.get('https://pixabay.com/api/', {
-    params: { ...searchParams },
+    params: { ...searchOptionsOb },
   });
+
   return response.data;
 }

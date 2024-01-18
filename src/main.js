@@ -6,7 +6,7 @@ const loadMoreBtn = document.querySelector('.load-more-btn');
 
 document.querySelector('.main-load').style.display = 'none';
 document.querySelector('.more-load').style.display = 'none';
-loadMoreBtn.style.display = 'none'
+loadMoreBtn.style.display = 'none';
 
 let searchKey;
 
