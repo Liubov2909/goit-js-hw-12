@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const form = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
-const galleryBox = document.querySelector('.gallery-box');
 const loaderTopBtn = document.querySelector('.loader-top');
 const loaderBottomBtn = document.querySelector('.loader-bottom');
 const loadImg = document.querySelector('.load-image');
