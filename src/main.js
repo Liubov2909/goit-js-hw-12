@@ -6,12 +6,9 @@ import axios from 'axios';
 
 const form = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
-const galleryBox = document.querySelector('.gallery-box');
 const loaderTop = document.querySelector('.loader-top');
 const loaderBottom = document.querySelector('.loader-bottom');
-const input = document.querySelector('input');
 const loadImg = document.querySelector('.load-image');
-const body = document.querySelector('body');
 
 let page = 1;
 let q = 'cat';
