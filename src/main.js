@@ -31,6 +31,7 @@ async function onSubmit(event) {
   loaderTop.style.display = 'block';
   loadImg.style.display = 'none';
   page = 1;
+  gallery.innerHTML = '';
   q = event.target.elements.search.value.trim();
 
   if (!q) {
